@@ -97,4 +97,22 @@ These factors are essential for designing scalable and highly available SQL data
 <img width="600" height="280" alt="image" src="https://github.com/user-attachments/assets/6ed5ec52-3364-40ac-b209-bb230f9ef233" />
 
 This overview helps you understand the strengths and use cases of different database types as you work toward data engineering roles.
+
+### Identifying schemas and domains
+
+
+- Schemas organize related database objects like tables, views, indexes, sequences, and triggers, usually representing a single business domain.
+- A domain is a set of logically related entities that share a data lifecycle and business context, such as customers and their addresses or orders and order items.
+- Determining domain boundaries involves understanding entity relationships, data usage together, lifecycle, compliance, and business processes.
+- Sometimes, a domain may be split into multiple schemas due to organizational ownership, complexity, or different operational processes.
+
+
+A **schema** is a collection of related database objects (tables, indexes, triggers). Typically, all of the entities that we're modeling within a schema are from a single domain.
+
+A **domain** is a set of logically related entities (for example, a customer and a customer's address). But even logically related entities can be in different domains if they have a different data lifecycle or different business meaning. Example: a product from a sales perspective versus a product from an inventory perspective — those are different domains.
+
+When deciding how to split things into domains, the key is understanding whether entities are used together, whether they are created and purged in similar ways, and whether they are subject to similar compliance requirements.
+
+Ideally, there's no more than one domain per schema. But sometimes, due to size and complexity, different organizational ownership, or corporate rules, a single domain may have multiple schemas.
+
     
