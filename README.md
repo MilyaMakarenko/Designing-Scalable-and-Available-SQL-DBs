@@ -61,6 +61,18 @@ Understanding these factors helps design database architectures that can scale e
 
 This approach is essential for designing scalable and highly available SQL databases that align with real business needs.
 
+
+#### Solution: Identified business requirements
+- Consider how humans and machines will interact with the system, including data ingestion methods like streaming or batch loading.
+- Think about availability needs, expected user volume, and service level agreements.
+- Account for machine learning requirements and the supporting cloud and analytics infrastructure.
+- Evaluate growth rates, regulatory compliance, and latency requirements for both data ingestion and querying.
+
+
+These factors are essential for designing scalable and highly available SQL databases that meet business and technical needs effectively.
+
+<img width="915" height="973" alt="image" src="https://github.com/user-attachments/assets/fa54c933-93dc-44f2-8e0e-556f047c0004" />
+
     
     
 
