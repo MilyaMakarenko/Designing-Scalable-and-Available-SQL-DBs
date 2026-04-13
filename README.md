@@ -85,9 +85,10 @@ These factors are essential for designing scalable and highly available SQL data
   
 - NoSQL databases come in three types: document (semi-structured JSON-like data, e.g., MongoDB), wide-column (multi-dimensional tables, e.g., Cassandra), and graph databases (nodes and edges representing entities and relationships, e.g., Neo4j).
 
-<img width="479" height="225" alt="image" src="https://github.com/user-attachments/assets/18dee936-cdeb-420e-9387-7e02fe92733c" />
- <img width="436" height="224" alt="image" src="https://github.com/user-attachments/assets/1c58c93e-35b4-4068-b825-78f0bbbf67ef" />
- <img width="422" height="225" alt="image" src="https://github.com/user-attachments/assets/1ad2313c-356b-4856-b968-55db54d3bc71" />
+ <img width="409" height="225" alt="image" src="https://github.com/user-attachments/assets/18dee936-cdeb-420e-9387-7e02fe92733c" />
+
+ <img width="406" height="224" alt="image" src="https://github.com/user-attachments/assets/1c58c93e-35b4-4068-b825-78f0bbbf67ef" />
+ <img width="402" height="225" alt="image" src="https://github.com/user-attachments/assets/1ad2313c-356b-4856-b968-55db54d3bc71" />
 
 
 - Analytical databases are designed for large-scale data analysis with massively parallel scans instead of traditional indexes, like Google BigQuery.
