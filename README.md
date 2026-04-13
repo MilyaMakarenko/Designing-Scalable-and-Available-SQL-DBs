@@ -17,7 +17,7 @@ Consider data volume, ingestion rate, and expected growth over time to plan for 
 Think about the data lifecycle, including how long data needs to be retained and compliance requirements like GDPR.
 Understand how the data will be used—whether for transactional processing with low latency needs or analytical decision-making with large queries.
 Identify key domain entities and their attributes, keeping in mind that data models may evolve as business needs change.
-<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/ddba8247-80d0-4183-8c0c-1eff8d852bd9" />
+<img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/ddba8247-80d0-4183-8c0c-1eff8d852bd9" />
 
 ### Identifying use cases for data
     
