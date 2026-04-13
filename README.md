@@ -17,7 +17,7 @@ Consider data volume, ingestion rate, and expected growth over time to plan for 
 Think about the data lifecycle, including how long data needs to be retained and compliance requirements like GDPR.
 Understand how the data will be used—whether for transactional processing with low latency needs or analytical decision-making with large queries.
 Identify key domain entities and their attributes, keeping in mind that data models may evolve as business needs change.
-<img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/ddba8247-80d0-4183-8c0c-1eff8d852bd9" />
+<img width="700" height="260" alt="image" src="https://github.com/user-attachments/assets/ddba8247-80d0-4183-8c0c-1eff8d852bd9" />
 
 ### Identifying use cases for data
     
@@ -51,7 +51,7 @@ Understanding these elements is crucial for designing databases that are secure,
 
 
 Understanding these factors helps design database architectures that can scale efficiently and control costs.
-<img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/0dd77f9d-1f9d-4580-80d6-f65cf2d89b2f" />
+<img width="700" height="280" alt="image" src="https://github.com/user-attachments/assets/0dd77f9d-1f9d-4580-80d6-f65cf2d89b2f" />
 
 ### Challenge: Identify business requirements in a scenario
 
