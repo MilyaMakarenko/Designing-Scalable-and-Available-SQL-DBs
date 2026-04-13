@@ -94,7 +94,7 @@ These factors are essential for designing scalable and highly available SQL data
 - NoSQL databases emerged to address scalability limits of relational databases but now some relational databases also offer horizontal scalability and global distribution.
 - Choosing the right database depends on your data structure, scalability needs, and query types—transactional or analytical.
 
-<img width="644" height="280" alt="image" src="https://github.com/user-attachments/assets/6ed5ec52-3364-40ac-b209-bb230f9ef233" />
+<img width="600" height="280" alt="image" src="https://github.com/user-attachments/assets/6ed5ec52-3364-40ac-b209-bb230f9ef233" />
 
 This overview helps you understand the strengths and use cases of different database types as you work toward data engineering roles.
     
