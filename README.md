@@ -167,3 +167,6 @@ Three ways to partition:
 - **Hash partitioning**: use a hash function on a partition key (like product ID) to evenly distribute data across partitions when no logical partition makes sense.
 
 **Caching** improves read performance, but we often turn to caching later (when building queries), whereas tablespaces and partitions are something we want to think about early in the design process.
+
+<img width="377" height="300" alt="image" src="https://github.com/user-attachments/assets/c07812ab-dd71-4ec3-936e-882c0eeb817f" />
+
