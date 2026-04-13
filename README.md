@@ -117,4 +117,35 @@ Ideally, there's no more than one domain per schema. But sometimes, due to size 
 
 ### Identifying key entities
 
+Entities are logical representations of things in a domain. You can identify them by looking at the nouns you use when talking about a domain.
+
+A small number of entities will capture most of the important information (like an 80/20 rule). Think of the solar system analogy: a few large objects (Sun, planets) and smaller objects orbiting around them (moons). In data modeling, you have larger, more important entities, and then other entities related to them.
+
+How to find entities?
+
+- Major entities are fairly obvious and easy to identify.
+
+- Minor entities are often not obvious. One way to spot them is to describe a particular operation or process in detail and see what nouns show up.
+
+Examples:
+
+- Sales transaction: customer, product, order, payment method.
+  <img width="312" height="120" alt="image" src="https://github.com/user-attachments/assets/2c98e808-7bdd-4a95-a266-1fb9f53b05f0" />
+
+- IoT sensor monitoring: measurements, sensors, edge device, building, campus.
+  <img width="312" height="120" alt="image" src="https://github.com/user-attachments/assets/01d2b796-8991-4891-b7fe-b1b8eb2f9969" />
+
+
+Questions to ask when modeling:
+
+- What business process is being modeled?
+
+- What business objects or artifacts are used in the process? (e.g., a claim form or policy application)
+
+- What's being analyzed? What transactions are being executed?
+
+- Look at existing reports or the kinds of queries a business analyst might run.
+
+Artifacts like claim forms or policy applications are rich sources of information for how to model a particular entity.
+
     
