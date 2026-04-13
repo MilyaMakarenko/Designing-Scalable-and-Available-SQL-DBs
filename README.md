@@ -1,5 +1,7 @@
 # Designing-Scalable-and-Available-SQL-DBs
 [course link](https://www.linkedin.com/learning/designing-highly-scalable-and-highly-available-sql-databases)
+author:  [Dan Sullivan](https://www.linkedin.com/in/dansullivanpdx/)
+Data Architect, Author, and Instructor 
 
 
 ### Lecture Notes
