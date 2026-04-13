@@ -25,7 +25,7 @@ Identify key domain entities and their attributes, keeping in mind that data mod
 - Different use cases like sales transactions, equipment monitoring, and customer engagement have distinct data characteristics and access patterns, influencing database design.
 - Workloads are multi-step and interdependent, involving various processes beyond just the database, such as services running in containers or cloud environments.
 - This understanding is crucial for designing databases that are both scalable and highly available to meet diverse business needs.
-<img width="800" height="180" alt="image" src="https://github.com/user-attachments/assets/97a81a2b-fe48-454f-ba80-f6aa399bdaa7" />
+<img width="600" height="150" alt="image" src="https://github.com/user-attachments/assets/97a81a2b-fe48-454f-ba80-f6aa399bdaa7" />
 
 ### Identifying security and compliance requirements
 
@@ -73,7 +73,7 @@ This approach is essential for designing scalable and highly available SQL datab
 
 These factors are essential for designing scalable and highly available SQL databases that meet business and technical needs effectively.
 
-<img width="800" height="700" alt="image" src="https://github.com/user-attachments/assets/fa54c933-93dc-44f2-8e0e-556f047c0004" />
+<img width="550" height="480" alt="image" src="https://github.com/user-attachments/assets/fa54c933-93dc-44f2-8e0e-556f047c0004" />
 
 ## Database Architecture and Relational Databases
 
