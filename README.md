@@ -8,7 +8,9 @@ Data Architect, Author, and Instructor
 
 ### Lecture Notes
 
-#### Learning about business requirements for database scalibility
+## Understanding Scalability Requirements
+
+### Learning about business requirements for database scalibility
 
 Start by understanding the specific business requirements and use cases for the database, including what data you’ll work with and how it’s structured (structured, semi-structured, or unstructured).
 Consider data volume, ingestion rate, and expected growth over time to plan for scalability.
@@ -17,7 +19,7 @@ Understand how the data will be used—whether for transactional processing with
 Identify key domain entities and their attributes, keeping in mind that data models may evolve as business needs change.
 <img width="1257" height="750" alt="image" src="https://github.com/user-attachments/assets/ddba8247-80d0-4183-8c0c-1eff8d852bd9" />
 
-#### Identifying use cases for data
+### Identifying use cases for data
     
 - Data use cases involve understanding the data lifecycle—how data is created, processed, analyzed, archived, reused, or deleted—and the workloads that describe how data is ingested, stored, and queried.
 - Different use cases like sales transactions, equipment monitoring, and customer engagement have distinct data characteristics and access patterns, influencing database design.
@@ -25,7 +27,7 @@ Identify key domain entities and their attributes, keeping in mind that data mod
 - This understanding is crucial for designing databases that are both scalable and highly available to meet diverse business needs.
 <img width="1132" height="219" alt="image" src="https://github.com/user-attachments/assets/97a81a2b-fe48-454f-ba80-f6aa399bdaa7" />
 
-#### Identifying security and compliance requirements
+### Identifying security and compliance requirements
 
 - Security involves managing who can access and perform operations on data through roles and permissions, following the principle of least privilege to limit access.
 - Confidentiality is protected using identity and access management systems and encryption both at rest and in transit; monitoring and data loss prevention help detect unauthorized access.
@@ -37,7 +39,7 @@ Identify key domain entities and their attributes, keeping in mind that data mod
 Understanding these elements is crucial for designing databases that are secure, compliant, and reliable at scale.
 
 
-#### Estimating data growth
+### Estimating data growth
 
 
 - Data growth depends on factors like the number of users or sensors generating data, new external data sources, and changes in business processes.
@@ -51,7 +53,7 @@ Understanding these elements is crucial for designing databases that are secure,
 Understanding these factors helps design database architectures that can scale efficiently and control costs.
 <img width="1219" height="711" alt="image" src="https://github.com/user-attachments/assets/0dd77f9d-1f9d-4580-80d6-f65cf2d89b2f" />
 
-#### Challenge: Identify business requirements in a scenario
+### Challenge: Identify business requirements in a scenario
 
 - Understand the variety of data types and volumes involved, as well as different use cases for the data.
 - Consider both technical requirements (like specific technologies or software) and non-technical requirements (such as service level objectives).
@@ -62,7 +64,7 @@ Understanding these factors helps design database architectures that can scale e
 This approach is essential for designing scalable and highly available SQL databases that align with real business needs.
 
 
-#### Solution: Identified business requirements
+### Solution: Identified business requirements
 - Consider how humans and machines will interact with the system, including data ingestion methods like streaming or batch loading.
 - Think about availability needs, expected user volume, and service level agreements.
 - Account for machine learning requirements and the supporting cloud and analytics infrastructure.
@@ -73,7 +75,16 @@ These factors are essential for designing scalable and highly available SQL data
 
 <img width="915" height="973" alt="image" src="https://github.com/user-attachments/assets/fa54c933-93dc-44f2-8e0e-556f047c0004" />
 
-    
-    
+## Database Architecture and Relational Databases
 
+### Choosing a data store: SQL, NoSQL, or analytical?
+    
+- Relational databases use fixed schemas with structured tables and SQL queries, supporting ACID transactions for reliable operations. Examples include PostgreSQL, MySQL, SQL Server, and Oracle.
+- NoSQL databases come in three types: document (semi-structured JSON-like data, e.g., MongoDB), wide-column (multi-dimensional tables, e.g., Cassandra), and graph databases (nodes and edges representing entities and relationships, e.g., Neo4j).
+- Analytical databases are designed for large-scale data analysis with massively parallel scans instead of traditional indexes, like Google BigQuery.
+- NoSQL databases emerged to address scalability limits of relational databases but now some relational databases also offer horizontal scalability and global distribution.
+- Choosing the right database depends on your data structure, scalability needs, and query types—transactional or analytical.
+
+
+This overview helps you understand the strengths and use cases of different database types as you work toward data engineering roles.
     
