@@ -45,6 +45,7 @@ Understanding these elements is crucial for designing databases that are secure,
 - Increased application use and new workloads, such as ETL or machine learning, can significantly increase data volume.
 - Machine-generated data can grow much faster and larger than human-generated data, requiring careful planning.
 - Data augmentation from third-party sources can also add to data volume unexpectedly.
+<img width="1482" height="429" alt="image" src="https://github.com/user-attachments/assets/1d74cb7b-b3af-4dc6-a98e-320223ba228b" />
 
 
 Understanding these factors helps design database architectures that can scale efficiently and control costs.
