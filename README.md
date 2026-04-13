@@ -115,4 +115,6 @@ When deciding how to split things into domains, the key is understanding whether
 
 Ideally, there's no more than one domain per schema. But sometimes, due to size and complexity, different organizational ownership, or corporate rules, a single domain may have multiple schemas.
 
+### Identifying key entities
+
     
