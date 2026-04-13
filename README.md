@@ -150,4 +150,20 @@ Questions to ask when modeling:
 
 Artifacts like claim forms or policy applications are rich sources of information for how to model a particular entity.
 
-    
+### High-level physical design
+
+Physical Data Model – Tablespaces & Partitions – Short Summary
+
+**Tablespaces** are storage locations for physically storing data (like a file in a server filesystem). They allow us to organize related tables or indexes and enable parallel operations. For example, put a table in one tablespace on one physical device and its index in another tablespace on another device, so writes can happen in parallel. Data within a tablespace is managed as a single unit (drop the tablespace, drop everything in it).
+
+**Partitions** allow us to segment data within a very large table (like an IoT sensor table). Think of partitions almost like subtables. If data for a single sensor is in one partition, you only go to that partition.
+
+Three ways to partition:
+
+- **Time-based**: great for time series data (e.g., create a new partition every day).
+
+- **List-based**: e.g., sales data from North America in one partition, Europe in another.
+
+- **Hash partitioning**: use a hash function on a partition key (like product ID) to evenly distribute data across partitions when no logical partition makes sense.
+
+**Caching** improves read performance, but we often turn to caching later (when building queries), whereas tablespaces and partitions are something we want to think about early in the design process.
