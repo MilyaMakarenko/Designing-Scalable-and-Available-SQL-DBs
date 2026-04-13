@@ -80,6 +80,7 @@ These factors are essential for designing scalable and highly available SQL data
 ### Choosing a data store: SQL, NoSQL, or analytical?
     
 - Relational databases use fixed schemas with structured tables and SQL queries, supporting ACID transactions for reliable operations. Examples include PostgreSQL, MySQL, SQL Server, and Oracle.
+  <img width="400" height="180" alt="image" src="https://github.com/user-attachments/assets/2a688a55-781b-4073-96ef-90242569846e" />
 - NoSQL databases come in three types: document (semi-structured JSON-like data, e.g., MongoDB), wide-column (multi-dimensional tables, e.g., Cassandra), and graph databases (nodes and edges representing entities and relationships, e.g., Neo4j).
 - Analytical databases are designed for large-scale data analysis with massively parallel scans instead of traditional indexes, like Google BigQuery.
 - NoSQL databases emerged to address scalability limits of relational databases but now some relational databases also offer horizontal scalability and global distribution.
