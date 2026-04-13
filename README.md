@@ -17,7 +17,7 @@ Consider data volume, ingestion rate, and expected growth over time to plan for 
 Think about the data lifecycle, including how long data needs to be retained and compliance requirements like GDPR.
 Understand how the data will be used—whether for transactional processing with low latency needs or analytical decision-making with large queries.
 Identify key domain entities and their attributes, keeping in mind that data models may evolve as business needs change.
-<img width="1257" height="750" alt="image" src="https://github.com/user-attachments/assets/ddba8247-80d0-4183-8c0c-1eff8d852bd9" />
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/ddba8247-80d0-4183-8c0c-1eff8d852bd9" />
 
 ### Identifying use cases for data
     
@@ -25,7 +25,7 @@ Identify key domain entities and their attributes, keeping in mind that data mod
 - Different use cases like sales transactions, equipment monitoring, and customer engagement have distinct data characteristics and access patterns, influencing database design.
 - Workloads are multi-step and interdependent, involving various processes beyond just the database, such as services running in containers or cloud environments.
 - This understanding is crucial for designing databases that are both scalable and highly available to meet diverse business needs.
-<img width="1132" height="219" alt="image" src="https://github.com/user-attachments/assets/97a81a2b-fe48-454f-ba80-f6aa399bdaa7" />
+<img width="800" height="180" alt="image" src="https://github.com/user-attachments/assets/97a81a2b-fe48-454f-ba80-f6aa399bdaa7" />
 
 ### Identifying security and compliance requirements
 
@@ -47,11 +47,11 @@ Understanding these elements is crucial for designing databases that are secure,
 - Increased application use and new workloads, such as ETL or machine learning, can significantly increase data volume.
 - Machine-generated data can grow much faster and larger than human-generated data, requiring careful planning.
 - Data augmentation from third-party sources can also add to data volume unexpectedly.
-<img width="1482" height="429" alt="image" src="https://github.com/user-attachments/assets/1d74cb7b-b3af-4dc6-a98e-320223ba228b" />
+<img width="800" height="300" alt="image" src="https://github.com/user-attachments/assets/1d74cb7b-b3af-4dc6-a98e-320223ba228b" />
 
 
 Understanding these factors helps design database architectures that can scale efficiently and control costs.
-<img width="1219" height="711" alt="image" src="https://github.com/user-attachments/assets/0dd77f9d-1f9d-4580-80d6-f65cf2d89b2f" />
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/0dd77f9d-1f9d-4580-80d6-f65cf2d89b2f" />
 
 ### Challenge: Identify business requirements in a scenario
 
@@ -59,7 +59,7 @@ Understanding these factors helps design database architectures that can scale e
 - Consider both technical requirements (like specific technologies or software) and non-technical requirements (such as service level objectives).
 - Architects need to collaborate closely with domain experts and business owners to clarify and expand on the initial documentation.
 - Asking additional questions helps ensure the database design will meet both functional and scalability needs effectively.
-<img width="666" height="562" alt="image" src="https://github.com/user-attachments/assets/a3fa7ec7-8a66-4c27-bd87-803ef571b809" />
+<img width="550" height="400" alt="image" src="https://github.com/user-attachments/assets/a3fa7ec7-8a66-4c27-bd87-803ef571b809" />
 
 This approach is essential for designing scalable and highly available SQL databases that align with real business needs.
 
@@ -73,7 +73,7 @@ This approach is essential for designing scalable and highly available SQL datab
 
 These factors are essential for designing scalable and highly available SQL databases that meet business and technical needs effectively.
 
-<img width="915" height="973" alt="image" src="https://github.com/user-attachments/assets/fa54c933-93dc-44f2-8e0e-556f047c0004" />
+<img width="800" height="700" alt="image" src="https://github.com/user-attachments/assets/fa54c933-93dc-44f2-8e0e-556f047c0004" />
 
 ## Database Architecture and Relational Databases
 
