@@ -49,8 +49,17 @@ Understanding these elements is crucial for designing databases that are secure,
 
 
 Understanding these factors helps design database architectures that can scale efficiently and control costs.
+<img width="1219" height="711" alt="image" src="https://github.com/user-attachments/assets/0dd77f9d-1f9d-4580-80d6-f65cf2d89b2f" />
 
+#### Challenge: Identify business requirements in a scenario
 
+- Understand the variety of data types and volumes involved, as well as different use cases for the data.
+- Consider both technical requirements (like specific technologies or software) and non-technical requirements (such as service level objectives).
+- Architects need to collaborate closely with domain experts and business owners to clarify and expand on the initial documentation.
+- Asking additional questions helps ensure the database design will meet both functional and scalability needs effectively.
+<img width="666" height="562" alt="image" src="https://github.com/user-attachments/assets/a3fa7ec7-8a66-4c27-bd87-803ef571b809" />
+
+This approach is essential for designing scalable and highly available SQL databases that align with real business needs.
 
     
     
