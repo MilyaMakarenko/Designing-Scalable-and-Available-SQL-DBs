@@ -51,7 +51,7 @@ Understanding these elements is crucial for designing databases that are secure,
 
 
 Understanding these factors helps design database architectures that can scale efficiently and control costs.
-<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/0dd77f9d-1f9d-4580-80d6-f65cf2d89b2f" />
+<img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/0dd77f9d-1f9d-4580-80d6-f65cf2d89b2f" />
 
 ### Challenge: Identify business requirements in a scenario
 
