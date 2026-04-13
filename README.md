@@ -37,6 +37,20 @@ Identify key domain entities and their attributes, keeping in mind that data mod
 Understanding these elements is crucial for designing databases that are secure, compliant, and reliable at scale.
 
 
+#### Estimating data growth
+
+
+- Data growth depends on factors like the number of users or sensors generating data, new external data sources, and changes in business processes.
+- Managing the data lifecycle is important—deciding how long to keep data and where to store it (hot storage vs archival) affects growth and cost.
+- Increased application use and new workloads, such as ETL or machine learning, can significantly increase data volume.
+- Machine-generated data can grow much faster and larger than human-generated data, requiring careful planning.
+- Data augmentation from third-party sources can also add to data volume unexpectedly.
+
+
+Understanding these factors helps design database architectures that can scale efficiently and control costs.
+
+
+
     
     
 
