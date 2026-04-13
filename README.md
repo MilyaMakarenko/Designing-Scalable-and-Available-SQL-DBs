@@ -130,10 +130,12 @@ How to find entities?
 Examples:
 
 - Sales transaction: customer, product, order, payment method.
-  <img width="312" height="120" alt="image" src="https://github.com/user-attachments/assets/2c98e808-7bdd-4a95-a266-1fb9f53b05f0" />
+  
+  <img width="512" height="320" alt="image" src="https://github.com/user-attachments/assets/2c98e808-7bdd-4a95-a266-1fb9f53b05f0" />
 
 - IoT sensor monitoring: measurements, sensors, edge device, building, campus.
-  <img width="312" height="120" alt="image" src="https://github.com/user-attachments/assets/01d2b796-8991-4891-b7fe-b1b8eb2f9969" />
+  
+  <img width="512" height="320" alt="image" src="https://github.com/user-attachments/assets/01d2b796-8991-4891-b7fe-b1b8eb2f9969" />
 
 
 Questions to ask when modeling:
