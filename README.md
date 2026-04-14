@@ -483,11 +483,14 @@ Implementation:
 Bottom line: Use aggregation to reduce data volume for older time series. Use sampling when you can accept near-enough answers for much faster performance. Both are trade-offs – accuracy/ detail vs. speed/resources.
 
 ## DevOps for Scalable Relational Databases
-### Monitoring relational databases – short summary
+### Monitoring relational databases 
 
 Database monitoring is crucial after your database is in production. It helps you detect problems and understand what's happening.
 
 What to **monitor**:
+
+<img width="300" height="280" alt="image" src="https://github.com/user-attachments/assets/6fa78470-6d67-4bb8-b9b2-21fa3d83be63" />
+<img width="200" height="280" alt="image" src="https://github.com/user-attachments/assets/a6263204-f7b8-4a65-acbe-8c273978be81" />
 
 - Resource consumption – CPU, memory, disk space, network. Track trends so you can add resources before you run out.
 
