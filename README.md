@@ -552,6 +552,8 @@ Bottom line: Caching dramatically reduces read latency for frequently queried da
 
 <img width="400" height="140" alt="image" src="https://github.com/user-attachments/assets/e8395b60-570f-483c-b238-3becd527dc4f" />
 chunks
+<img width="400" height="180" alt="image" src="https://github.com/user-attachments/assets/77193790-cff1-4bb3-a429-ff53b4df165b" />
+
 
 Partitioning breaks large tables into smaller chunks (partitions) so queries don't have to scan the entire table. This reduces work and improves performance.
 
