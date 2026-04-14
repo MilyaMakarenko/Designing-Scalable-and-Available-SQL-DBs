@@ -615,3 +615,9 @@ Bottom line: HA = multiple servers + multiple locations. Spanner (Google) solves
 
 <img width="400" height="380" alt="image" src="https://github.com/user-attachments/assets/c4f0af11-be75-4518-b99f-8e4ac4e7a808" />
 
+
+Recomendation for me
+
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/ed026c74-1022-4bac-adca-646693de89bf" />
+
+
