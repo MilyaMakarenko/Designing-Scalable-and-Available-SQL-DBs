@@ -312,5 +312,10 @@ Quick rule of thumb:
 
 - Many distinct values, only equality checks → Hash
 
+  <img width="200" height="140" alt="image" src="https://github.com/user-attachments/assets/534c6bdd-f685-4017-8509-5741c8773cca" />
+
+
   <img width="200" height="140" alt="image" src="https://github.com/user-attachments/assets/42f74114-2a2a-4761-a655-6288e485ec17" />
+
+### Materialized views for transactional queries
 
