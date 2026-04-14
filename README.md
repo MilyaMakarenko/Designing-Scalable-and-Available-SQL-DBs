@@ -378,12 +378,11 @@ Two main benefits of WAL:
 2)Read replicas – WAL files can be shipped to replicas.
 
 Sync options when using WAL for replicas:
-Option	| Write Performance	| Data Loss Risk
---- | ___ | --- |
-Asynchronous write		| Highest	|	Highest
-Synchronous write	|	Medium	|	Medium
-Synchronous apply	|	Lowest	|	Lowest
-
+| Option | Write Performance | Data Loss Risk |
+| :--- | :---: | :---: |
+| Asynchronous write | Highest | Highest |
+| Synchronous write | Medium | Medium |
+| Synchronous apply | Lowest | Lowest |
 - Async – data written to WAL on primary only. Fastest, but riskiest.
 
 - Sync write – WAL written on both primary and replica. Data on replica not yet queryable, but safe.
