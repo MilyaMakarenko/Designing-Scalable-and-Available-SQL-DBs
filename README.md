@@ -215,7 +215,8 @@ Your application will fall somewhere on the spectrum from human scale to machine
 **Machine scale ingestion:**
 
 - Data is not written directly to the database. Instead, we ingest into a buffer or queue.
-  <img width="201" height="174" alt="image" src="https://github.com/user-attachments/assets/ba369807-58e3-4334-98e3-d75f2247c875" />
+  
+<img width="201" height="174" alt="image" src="https://github.com/user-attachments/assets/ba369807-58e3-4334-98e3-d75f2247c875" />
 
 
 - This decouples ingestion from processing.
@@ -230,6 +231,13 @@ Your application will fall somewhere on the spectrum from human scale to machine
 
     Machine scale: large volumes arriving in very short periods. If the database can't keep up and there's a risk of losing data, use machine scale techniques (buffer/queue) to decouple ingestion from processing.
 
+### Ingesting at human and machine scale
+
+For human scale, we usually do synchronous ingestion. That means the app writes data to the database and waits for a response before continuing. User interfaces work this way a lot — you enter something, you get a confirmation, then you move on. But spikes can happen, like a flash sale. If we're doing synchronous writes and suddenly there's a huge spike in orders, we need to scale up the database to handle that peak because there's no buffer. We also need to think about payload sizes, average time to persist data, and all the resources needed for writing to tables and updating indexes.
+
+For machine scale, we don't write directly to the database. Instead, we use a buffer or queue between the data source and the app. Devices send data to an ingestion endpoint, which does basic checks, then puts the data in a queue. The application pulls data from the queue (pull is better because the app stays in control). This decouples ingestion from processing and helps handle spikes without overwhelming the database.
+
+When designing this, we need to figure out buffer size, infrastructure needs, average payload size, network latency, and how long database writes actually take. All of this matters if we want to meet service level agreements.
 
 
 
