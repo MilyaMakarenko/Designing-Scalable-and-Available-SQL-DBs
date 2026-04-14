@@ -17,7 +17,7 @@ Consider data volume, ingestion rate, and expected growth over time to plan for 
 Think about the data lifecycle, including how long data needs to be retained and compliance requirements like GDPR.
 Understand how the data will be used—whether for transactional processing with low latency needs or analytical decision-making with large queries.
 Identify key domain entities and their attributes, keeping in mind that data models may evolve as business needs change.
-<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/ddba8247-80d0-4183-8c0c-1eff8d852bd9" />
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/ddba8247-80d0-4183-8c0c-1eff8d852bd9" />
 
 ### Identifying use cases for data
     
@@ -25,7 +25,7 @@ Identify key domain entities and their attributes, keeping in mind that data mod
 - Different use cases like sales transactions, equipment monitoring, and customer engagement have distinct data characteristics and access patterns, influencing database design.
 - Workloads are multi-step and interdependent, involving various processes beyond just the database, such as services running in containers or cloud environments.
 - This understanding is crucial for designing databases that are both scalable and highly available to meet diverse business needs.
-<img width="600" height="150" alt="image" src="https://github.com/user-attachments/assets/97a81a2b-fe48-454f-ba80-f6aa399bdaa7" />
+<img width="500" height="140" alt="image" src="https://github.com/user-attachments/assets/97a81a2b-fe48-454f-ba80-f6aa399bdaa7" />
 
 ### Identifying security and compliance requirements
 
@@ -47,7 +47,7 @@ Understanding these elements is crucial for designing databases that are secure,
 - Increased application use and new workloads, such as ETL or machine learning, can significantly increase data volume.
 - Machine-generated data can grow much faster and larger than human-generated data, requiring careful planning.
 - Data augmentation from third-party sources can also add to data volume unexpectedly.
-<img width="800" height="300" alt="image" src="https://github.com/user-attachments/assets/1d74cb7b-b3af-4dc6-a98e-320223ba228b" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/1d74cb7b-b3af-4dc6-a98e-320223ba228b" />
 
 
 Understanding these factors helps design database architectures that can scale efficiently and control costs.
