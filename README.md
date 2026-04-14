@@ -546,3 +546,32 @@ Cache invalidation methods (how to keep cache fresh):
 - **Application logic** – The app knows when data changes and invalidates the cache accordingly.
 
 Bottom line: Caching dramatically reduces read latency for frequently queried data, but you must handle cache invalidation to avoid serving stale data.
+
+
+### Partitioning for scalability
+
+<img width="400" height="140" alt="image" src="https://github.com/user-attachments/assets/e8395b60-570f-483c-b238-3becd527dc4f" />
+chunks
+
+Partitioning breaks large tables into smaller chunks (partitions) so queries don't have to scan the entire table. This reduces work and improves performance.
+
+Horizontal partitioning – groups rows into partitions (e.g., all sales from one day in one partition). Query only needs to look at relevant partitions. Also enables local indexes (smaller, faster indexes within a single partition) instead of a single large global index on the whole table.
+
+Vertical partitioning – groups columns into partitions. Columns used together stay together; rarely used columns go elsewhere. Similar to columnar storage. Each partition has a global index. Reduces I/O when querying a subset of columns.
+
+Three ways to do horizontal partitioning:
+| Type | How it works | Example |
+| :--- | :--- | :--- |
+| **Range** | Split into non-overlapping groups using a partition key (dates, numbers, alphabet) | January partition, February partition, etc. |
+| **List** | Use an explicit list of values for the partition key | North America partition, Europe partition, Asia partition |
+| **Hash** | Use modular arithmetic (hash + mod) to distribute data evenly | No logical grouping – just even distribution across partitions |
+
+When to use which:
+
+- Range – time-based data, common in analytics and BI
+
+- List – natural segments (e.g., geographic regions)
+
+- Hash – no good natural key, but you want even I/O distribution and parallelism
+
+Bottom line: Partitioning = divide and conquer for large tables. Choose range, list, or hash based on how you query the data.
