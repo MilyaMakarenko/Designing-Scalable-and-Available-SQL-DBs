@@ -489,7 +489,7 @@ Database monitoring is crucial after your database is in production. It helps yo
 
 What to **monitor**:
 
-<img width="300" height="280" alt="image" src="https://github.com/user-attachments/assets/6fa78470-6d67-4bb8-b9b2-21fa3d83be63" />
+<img width="240" height="280" alt="image" src="https://github.com/user-attachments/assets/6fa78470-6d67-4bb8-b9b2-21fa3d83be63" />
 <img width="200" height="280" alt="image" src="https://github.com/user-attachments/assets/a6263204-f7b8-4a65-acbe-8c273978be81" />
 
 - Resource consumption – CPU, memory, disk space, network. Track trends so you can add resources before you run out.
@@ -502,7 +502,12 @@ What to **monitor**:
 
 - One-time changes – Merging databases, migrating from legacy systems. Monitor these carefully because they're unusual and may behave unexpectedly.
 
+- Schema migrations – Instead of rebuilding the entire data model from scratch, you apply ALTER commands that change the database state. A set of these commands is called a schema migration script. This is useful for applying changes consistently across different environments (development, staging, production).
+
 - Security changes – Role changes, permission changes. Use audit logs to track them.
+
+  <img width="200" height="140" alt="image" src="https://github.com/user-attachments/assets/1603544a-b09d-42df-8dff-159ca4f40538" />
+
 
 **Metrics vs. logs:**
 
@@ -516,3 +521,28 @@ Tools like Grafana and Superset help visualize metrics – top queries, active c
 
 Bottom line: Metrics alert you to problems. Logs help you find the root cause. Both are essential.
 
+### Reducing latency with caching 
+
+Caching stores copies of data (like query results) in memory. Reading from memory is much faster than reading from disk (SSD or HDD). Caching works well when the same data is queried frequently.
+
+The trade-off: Cached data can become inconsistent with the persistent storage. This is called cache invalidation – knowing when to update or remove stale data. This introduces eventual consistency.
+
+Caching strategies:
+| Strategy | How it works |
+| :--- | :--- |
+| **Cache Aside** | App checks cache first. If data is there – use it. If not – read from DB, then store in cache. |
+| **Read-Through** | App always queries the cache. If data missing, cache reads from DB, stores it, and returns it. |
+| **Write-Through** | App writes to cache, and cache immediately writes to DB. Data enters cache on write, not read. |
+| **Write-Back / Write-Behind** | App writes to cache, but DB is updated only periodically. Higher risk of data loss. |
+| **Write-Around** | App writes directly to DB. Only read data goes through the cache. |
+
+
+Cache invalidation methods (how to keep cache fresh):
+
+- **TTL (Time to Live)** – Data expires after a set time (5 minutes, 1 hour) and is refreshed.
+
+- **Consistency checks** – Lightweight check to see if cache matches DB.
+
+- **Application logic** – The app knows when data changes and invalidates the cache accordingly.
+
+Bottom line: Caching dramatically reduces read latency for frequently queried data, but you must handle cache invalidation to avoid serving stale data.
