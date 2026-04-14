@@ -481,3 +481,35 @@ Implementation:
 - Extensions to SQL with error tolerance and confidence intervals
 
 Bottom line: Use aggregation to reduce data volume for older time series. Use sampling when you can accept near-enough answers for much faster performance. Both are trade-offs – accuracy/ detail vs. speed/resources.
+
+## DevOps for Scalable Relational Databases
+### Monitoring relational databases – short summary
+
+Database monitoring is crucial after your database is in production. It helps you detect problems and understand what's happening.
+
+What to **monitor**:
+
+- Resource consumption – CPU, memory, disk space, network. Track trends so you can add resources before you run out.
+
+- Top queries – A small set of queries often consumes most resources. Identify and tune them. In Postgres, pg_stat_statements shows query frequency, execution time, and blocks read/written.
+
+- Throughput – Work completed over time (e.g., transactions per second, active connections, queue length). Queue length indicates backlog – tells you where you need more resources.
+
+- Changes to the database – Schema changes (migrations), unexpected data volume spikes, access control changes. Use schema migration scripts to apply changes consistently across environments.
+
+- One-time changes – Merging databases, migrating from legacy systems. Monitor these carefully because they're unusual and may behave unexpectedly.
+
+- Security changes – Role changes, permission changes. Use audit logs to track them.
+
+**Metrics vs. logs:**
+
+- Metrics tell you something is wrong (e.g., CPU spike, disk almost full). They don't tell you why.
+
+- Logs tell you why. They have detailed event information from the DBMS, OS, and applications. For complex problems, you may need to look at multiple logs – consolidated logging helps.
+
+**Dashboards:**
+
+Tools like Grafana and Superset help visualize metrics – top queries, active connections, throughput, etc.
+
+Bottom line: Metrics alert you to problems. Logs help you find the root cause. Both are essential.
+
