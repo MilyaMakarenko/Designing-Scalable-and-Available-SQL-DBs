@@ -319,3 +319,29 @@ Quick rule of thumb:
 
 ### Materialized views for transactional queries
 
+A materialized view is basically the saved results of a query. You run a query once, store the results, and then others can read those stored results instead of running the same heavy query again.
+
+This works well when you run the same query many times but only need to compute it once. It's a form of caching – you trade storage space for faster query performance.
+
+When to use them:
+
+- Long-running queries – run once, save, reuse.
+
+- Complex queries that put heavy load on the CPU (lots of joins, etc.).
+
+- Aggregates or derived data (averages, standard deviations, top K products).
+
+- Patterns like event sourcing and CQRS.
+
+Things to watch out for:
+
+- Materialized views are eventually consistent – the data might not be perfectly fresh. You need to tolerate some level of staleness.
+
+- Cost of updates – if you have to refresh the view every minute but only query it every 20 minutes, it's probably not worth it.
+
+- Some databases block reads during updates. If an update takes a long time, you can't read it when you need it.
+
+- Storage size – materialized views take up space and generate log data. Is the size justified?
+
+Bottom line: Materialized views save time on repeated queries but cost storage and update effort. They work best when the same results are read many times and you can live with some delay in freshness.
+
