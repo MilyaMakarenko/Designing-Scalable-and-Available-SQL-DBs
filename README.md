@@ -293,3 +293,24 @@ Analytical queries are different. They scan a large number of rows but usually o
 For indexes – it depends. In relational databases (Postgres, Oracle), analytical queries still use indexes, especially with star schemas. But some analytical databases like BigQuery don't use traditional indexes at all.
 
 So the choice between row vs. column storage, and how you handle indexes, really depends on whether your query pattern is transactional or analytical.
+
+### Indexing for query performance
+
+Indexes help queries run faster by reducing how much data we have to scan. They also can enforce unique constraints. But indexes aren't free – they add extra work for both reads and writes because we have to read and update the index along with the actual data.
+
+B-tree indexes are the default in most databases. They work like a balanced tree – you start in the middle, go left or right depending on your value, and quickly find what you need. Search time grows slowly (logarithmically) as the table gets bigger. Great for most cases.
+
+Bitmap indexes use bits (1s and 0s) to mark whether a row has a certain value. They work well when a column has only a few possible values (low cardinality). You can combine them with logical operations (AND, OR, NOT) very quickly. Good for read-heavy workloads, but updates are expensive. Postgres doesn't have persistent bitmap indexes (it builds them on the fly), Oracle does.
+
+Hash indexes turn data into a fixed-size hash value. They only work for equality lookups – you can't use greater than or less than. Similar inputs can produce very different hashes. Good when you have many distinct values and just need exact matches.
+
+Quick rule of thumb:
+
+- Default choice → B-tree
+
+- Few possible values, lots of reads → Bitmap
+
+- Many distinct values, only equality checks → Hash
+
+  <img width="200" height="140" alt="image" src="https://github.com/user-attachments/assets/42f74114-2a2a-4761-a655-6288e485ec17" />
+
