@@ -552,8 +552,7 @@ Bottom line: Caching dramatically reduces read latency for frequently queried da
 
 <img width="400" height="140" alt="image" src="https://github.com/user-attachments/assets/e8395b60-570f-483c-b238-3becd527dc4f" />
 chunks
-<img width="400" height="180" alt="image" src="https://github.com/user-attachments/assets/77193790-cff1-4bb3-a429-ff53b4df165b" />
-
+<img width="400" height="140" alt="image" src="https://github.com/user-attachments/assets/77193790-cff1-4bb3-a429-ff53b4df165b" />
 
 Partitioning breaks large tables into smaller chunks (partitions) so queries don't have to scan the entire table. This reduces work and improves performance.
 
@@ -577,3 +576,36 @@ When to use which:
 - Hash – no good natural key, but you want even I/O distribution and parallelism
 
 Bottom line: Partitioning = divide and conquer for large tables. Choose range, list, or hash based on how you query the data.
+
+
+### High-availability architectures
+
+High availability (HA) means having multiple servers (and often multiple physical locations like cloud regions or data centers) so the database can survive failures. You also need to think about networks, power, cooling – everything the database depends on.
+
+The hard part: Distributed relational databases are really difficult to implement. The biggest challenge is time – having a consistent, unified view of the order in which transactions happened across multiple servers.
+
+Google Cloud Spanner
+
+One of the first globally scalable, highly available relational databases (managed service).
+
+- TrueTime – Google's time service using atomic clocks and GPS. Returns time with under 10ms accuracy. Solves the time problem.
+
+-  Colossus – Google's global file system. Spanner writes data blocks to Colossus, which handles replication.
+
+- Transaction types:
+
+    - Lock read-write – pessimistic locking + two-phase commits. Writes must complete on primary and replicas before returning success.
+
+    - Read only – consistency across reads.
+
+    - Partitioned DML – bulk updates/deletes using partitions.
+
+CockroachDB
+
+Open-source distributed relational database, created by former Spanner team members as an alternative. Runs on commodity hardware in any cloud or on-prem.
+
+- No atomic clocks or GPS. Uses a hybrid logical clock (physical clock + logical ordering mechanism).
+
+- Handles time differences by waiting before reads and sometimes re-reading data (Spanner waits before writes).
+
+Bottom line: HA = multiple servers + multiple locations. Spanner (Google) solves time with TrueTime (atomic clocks). CockroachDB (open-source) solves time with hybrid logical clocks and runs anywhere.
