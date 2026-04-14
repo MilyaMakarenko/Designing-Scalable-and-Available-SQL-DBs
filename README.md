@@ -269,3 +269,15 @@ So where do we read from? We use materialized views that consume the event log a
 The trade-off? The materialized view might not always be perfectly up to date. If we add events faster than we refresh the view, there's a temporary inconsistency. But eventually, everything becomes consistent. That's called eventual consistency.
 
 The value? We can ingest data very quickly without blocking reads. For applications with many updates to the same record, event sourcing helps scale by trading a bit of consistency for better performance.
+
+### Command Query Responsibility Segregation (CQRS)
+
+CQRS stands for Command Query Responsibility Segregation. The main idea is simple: separate read operations from write operations. Sounds similar to event sourcing, and yes, they work well together.
+
+On the command side – that's writes. Commands change data: create an order, add an item, delete something. This side is optimized for write performance.
+
+On the query side – that's reads. Queries read data, typically from a presentation model (like a materialized view). This model is built specifically for how people query data, so queries become much simpler – fewer joins, less complex logic.
+
+The big benefit is that you can scale reads and writes independently. But there's no free lunch. CQRS adds complexity – more moving parts. It also brings eventual consistency, just like event sourcing. You have to tolerate that.
+
+Because of the complexity, CQRS isn't for everything. Use it only for really complex domains that need high scalability. And keep it small – use it within bounded contexts (from Domain-Driven Design). Better to have two small CQRS implementations than one huge complicated one.
