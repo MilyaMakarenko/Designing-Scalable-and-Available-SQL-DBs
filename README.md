@@ -215,6 +215,8 @@ Your application will fall somewhere on the spectrum from human scale to machine
 **Machine scale ingestion:**
 
 - Data is not written directly to the database. Instead, we ingest into a buffer or queue.
+  <img width="201" height="174" alt="image" src="https://github.com/user-attachments/assets/ba369807-58e3-4334-98e3-d75f2247c875" />
+
 
 - This decouples ingestion from processing.
 
