@@ -376,6 +376,7 @@ Normally, writing to a database is slow – you have to position data correctly 
 Two main benefits of WAL:
 1) Recovery – if the database crashes mid-transaction, WAL helps recover.
 2) Read replicas – WAL files can be shipped to replicas.
+   
    <img width="400" height="140" alt="image" src="https://github.com/user-attachments/assets/685ffb88-d1cd-4f3c-909a-b36cc7a107eb" />
    vs <img width="400" height="140" alt="image" src="https://github.com/user-attachments/assets/cb53fdc0-ba8d-4914-8f24-d6e7c6b3e2f4" />
 
@@ -394,3 +395,60 @@ Sync options when using WAL for replicas:
 
 Bottom line: WAL trades immediate query-readiness for fast writes. When using replicas, you choose sync options based on your tolerance for data loss vs. write performance.
 
+### Denormalizing for analytical queries
+
+**Normalization (OLTP)**
+
+**Normalized data** models are standard for transaction processing systems. They typically use third normal form (3NF) – "the key, the whole key, and nothing but the key." Every column in a row must relate directly to the primary key.
+
+Why normalize? To avoid data anomalies:
+
+- Insertion anomalies (can't add data without a key)
+
+- Update anomalies (redundant data causes inconsistencies)
+
+- Deletion anomalies (losing data when deleting something else)
+
+**Normalization** lets you model complex relationships (one-to-one, one-to-many, one-to-zero) and isolate data that changes at different rates. For example, a customer's name stays stable, but their address changes over time. Normalization handles this cleanly.
+
+**The trade-off:** Normalization is accurate and safe, but can be slow for analytical queries that need to scan large volumes of data and join many tables.
+
+**Denormalization for Analytics (OLAP)**
+
+For analytical systems, we often denormalize. The classic pattern is the star schema.
+
+Fact table:
+
+- Large table, often millions or billions of rows
+
+- Stores measures – quantifiable metrics like "products sold" or "average margin"
+
+- Usually includes a foreign key to each dimension and a timestamp
+
+**Dimension tables:**
+
+- Smaller tables that provide context
+
+- Examples: time dimension (date, day of week, month, quarter), geography dimension (country, region, store), product dimension, channel dimension
+
+- Contain descriptive attributes that answer "where, when, what, who"
+
+Why **star schema** performs better:
+
+- Dimension tables only join to the fact table – not to each other
+
+- Simple, predictable join patterns
+
+- Database optimizers can be tuned specifically for star joins
+
+- Some databases (like ClickHouse, BigQuery, Snowflake) have star-schema-specific optimizations
+
+| When to use which | Normalized (3NF) | Star Schema (Denormalized) |
+| :--- | :--- | :--- |
+| **Best for** | Transaction processing (OLTP) | Analytics (OLAP) |
+| **Goal** | Avoid anomalies, data integrity | Query speed on large volumes |
+| **Join complexity** | Many-to-many, complex | Simple fact-to-dimension |
+| **Storage** | Less redundant | More redundant |
+| **Write performance** | Good | Slower (but analytics is read-heavy) |
+
+**Bottom line:** **Normalize** for transactional systems where data integrity matters most. **Denormalize** into star schemas for analytical systems where query performance on large data volumes is the priority. You can't have both – it's a trade-off.
