@@ -239,5 +239,31 @@ For machine scale, we don't write directly to the database. Instead, we use a bu
 
 When designing this, we need to figure out buffer size, infrastructure needs, average payload size, network latency, and how long database writes actually take. All of this matters if we want to meet service level agreements.
 
+### Message queues to buffer ingested data
+
+Message queues help decouple services when one service processes data faster than another can keep up. The slower service reads from the queue at its own pace. This doesn't speed things up, but it prevents data loss. Losing data is worse than processing it slowly. Queues are designed to ingest and write data with very low latency, much faster than a typical database.
+
+Examples:
+
+- **Apache Kafka** – open source, you manage it yourself. It's a streaming log that can be used as a queue. Supports re-reading messages, can set retention to infinite (use as a persistent store if you want). Uses consumer groups instead of subscriptions – different apps can read the same messages.
+
+- **Google Cloud Pub/Sub** – managed service, scales globally. Supports push and pull subscriptions. Guarantees at-least-once delivery (exactly-once available only for pull). Messages not acknowledged go back to the queue – good for reliability. But messages may be out of order, so if ordering matters, you need something else like a stream processing platform (e.g., Dataflow, Flink).
+
+**Key takeaway:** Queues buffer data to handle spikes without dropping data. Just be careful with duplicates (at-least-once) and message order if your application requires it.
+
+### Data modeling for scale: Event sourcing
+
+Event sourcing is an alternative to the usual CRUD pattern (create, read, update, delete). In CRUD, we update rows directly and use row locks to prevent conflicts. Locks work fine but can become a problem when we try to scale – they block operations and slow things down.
+
+<img width="200" height="140" alt="image" src="https://github.com/user-attachments/assets/5bedee7b-97d0-4022-a15a-ec494fe677b3" />
 
 
+Event sourcing avoids locks by separating writes from reads. Instead of updating data, we only append events to a log. Every change becomes a new event – claim created, policy verified, claim item added, etc. We never update or delete anything in the event log.
+
+<img width="200" height="140" alt="image" src="https://github.com/user-attachments/assets/79015c2e-54ed-4db8-b5a8-b68552b06182" />
+
+So where do we read from? We use materialized views that consume the event log and build a current state (like a summary row for an insurance claim). Reads go to the materialized view, writes go to the event log. They're decoupled.
+
+The trade-off? The materialized view might not always be perfectly up to date. If we add events faster than we refresh the view, there's a temporary inconsistency. But eventually, everything becomes consistent. That's called eventual consistency.
+
+The value? We can ingest data very quickly without blocking reads. For applications with many updates to the same record, event sourcing helps scale by trading a bit of consistency for better performance.
