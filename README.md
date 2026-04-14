@@ -281,3 +281,15 @@ On the query side – that's reads. Queries read data, typically from a presenta
 The big benefit is that you can scale reads and writes independently. But there's no free lunch. CQRS adds complexity – more moving parts. It also brings eventual consistency, just like event sourcing. You have to tolerate that.
 
 Because of the complexity, CQRS isn't for everything. Use it only for really complex domains that need high scalability. And keep it small – use it within bounded contexts (from Domain-Driven Design). Better to have two small CQRS implementations than one huge complicated one.
+
+## Designing for Scalable Quirying
+
+### Transactional vs. analytical queries
+
+Transactional queries target a small number of rows but often need many columns. Think of looking up an employee record in an HR database – you want everything about that person. Row-oriented storage works well here because data for the same row is stored together on disk. Transactional queries also use indexes heavily and often involve complex joins.
+
+Analytical queries are different. They scan a large number of rows but usually only need a small number of columns. For example, checking product sales across many stores over the last two quarters – you probably just want quantity sold and revenue, not every product attribute. Column-oriented storage is better for this because data from the same column across many rows is stored together.
+
+For indexes – it depends. In relational databases (Postgres, Oracle), analytical queries still use indexes, especially with star schemas. But some analytical databases like BigQuery don't use traditional indexes at all.
+
+So the choice between row vs. column storage, and how you handle indexes, really depends on whether your query pattern is transactional or analytical.
