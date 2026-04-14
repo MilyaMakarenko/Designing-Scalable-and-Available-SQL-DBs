@@ -452,3 +452,32 @@ Why **star schema** performs better:
 | **Write performance** | Good | Slower (but analytics is read-heavy) |
 
 **Bottom line:** **Normalize** for transactional systems where data integrity matters most. **Denormalize** into star schemas for analytical systems where query performance on large data volumes is the priority. You can't have both – it's a trade-off.
+
+
+### Aggregation and sampling for analytical queries 
+
+**Aggregation**
+
+Great for time series data. Recent data is often needed in fine detail (seconds). Older data is still useful, but query patterns change – we usually want aggregates (minutes, hours, days) rather than raw detail.
+
+If your use cases allow it, you can store only coarser aggregates over time. For example: keep seconds for a week, then minutes, then only days after a year. This reduces storage and speeds up reads because there's less data to scan.
+
+You can also keep both raw and aggregated data if you need both detailed drill-downs and fast aggregate queries.
+
+Trade-off: Aggregation gives faster reads at the cost of losing fine detail. Not suitable when you need raw data for ML training or investigating old anomalies.
+
+**Sampling**
+
+Instead of reading all data, read a representative sample. Like election polls – you don't ask every voter, just a good sample.
+
+This is called approximate query processing. You trade accuracy for speed and compute resources. You might not get the exact number, but you get something very close.
+
+Good when you don't need 2–3 decimal places of precision. Your action based on the result stays the same.
+
+Implementation:
+
+- Some databases have built-in approximate functions (BigQuery, ClickHouse – e.g., topK)
+
+- Extensions to SQL with error tolerance and confidence intervals
+
+Bottom line: Use aggregation to reduce data volume for older time series. Use sampling when you can accept near-enough answers for much faster performance. Both are trade-offs – accuracy/ detail vs. speed/resources.
