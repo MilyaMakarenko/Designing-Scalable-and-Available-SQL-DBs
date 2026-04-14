@@ -260,7 +260,9 @@ Event sourcing is an alternative to the usual CRUD pattern (create, read, update
 
 Event sourcing avoids locks by separating writes from reads. Instead of updating data, we only append events to a log. Every change becomes a new event – claim created, policy verified, claim item added, etc. We never update or delete anything in the event log.
 
-<img width="200" height="140" alt="image" src="https://github.com/user-attachments/assets/79015c2e-54ed-4db8-b5a8-b68552b06182" />
+<img width="200" height="140" alt="image" src="https://github.com/user-attachments/assets/2b496f01-3973-405b-8d5c-6db861399910" />
+<img width="200" height="140" alt="image" src="https://github.com/user-attachments/assets/4b4c4f75-f545-4cff-b309-87300685c4a6" />
+
 
 So where do we read from? We use materialized views that consume the event log and build a current state (like a summary row for an insurance claim). Reads go to the materialized view, writes go to the event log. They're decoupled.
 
