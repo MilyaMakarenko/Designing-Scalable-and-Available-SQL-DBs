@@ -375,7 +375,10 @@ Normally, writing to a database is slow – you have to position data correctly 
 
 Two main benefits of WAL:
 1) Recovery – if the database crashes mid-transaction, WAL helps recover.
-2)Read replicas – WAL files can be shipped to replicas.
+2) Read replicas – WAL files can be shipped to replicas.
+   <img width="400" height="140" alt="image" src="https://github.com/user-attachments/assets/685ffb88-d1cd-4f3c-909a-b36cc7a107eb" />
+   vs <img width="400" height="140" alt="image" src="https://github.com/user-attachments/assets/cb53fdc0-ba8d-4914-8f24-d6e7c6b3e2f4" />
+
 
 Sync options when using WAL for replicas:
 | Option | Write Performance | Data Loss Risk |
@@ -390,3 +393,4 @@ Sync options when using WAL for replicas:
 - Sync apply – WAL written on both, and replica data is already structured and queryable. Safest but slowest.
 
 Bottom line: WAL trades immediate query-readiness for fast writes. When using replicas, you choose sync options based on your tolerance for data loss vs. write performance.
+
