@@ -197,3 +197,37 @@ Fortunately, many devices generate predictable data volumes per transaction (e.g
 **Key takeaway:**
 Your application will fall somewhere on the spectrum from human scale to machine scale. Depending on where it falls, you'll want to choose ingestion techniques that are appropriate for that place within the spectrum.
 
+### Different data ingestion strategies
+<img width="201" height="184" alt="image" src="https://github.com/user-attachments/assets/9405e0ae-15f9-4a64-b89e-a35659e4bb75" />
+
+**Human scale ingestion:**
+
+- Data is ingested directly by an application (e.g., via GUI or REST API).
+
+- The application generating the data is tightly coupled with the database.
+
+- Often "write once, read many times" (common in OLTP).
+
+- Involves receiving, validating, processing, then writing to the database.
+
+- Workflows require a mix of reads and writes at the same time.
+
+**Machine scale ingestion:**
+
+- Data is not written directly to the database. Instead, we ingest into a buffer or queue.
+
+- This decouples ingestion from processing.
+
+- Helps handle spikes in ingestion without subjecting the database to wide swings in performance demands.
+
+- With time series data, the most recent data is often the most valuable (e.g., anomaly detection). We may process data before writing it to the database.
+
+**Key takeaway:**
+
+- Human scale: smaller amounts, direct write to DB, CRUD interfaces.
+
+    Machine scale: large volumes arriving in very short periods. If the database can't keep up and there's a risk of losing data, use machine scale techniques (buffer/queue) to decouple ingestion from processing.
+
+
+
+
