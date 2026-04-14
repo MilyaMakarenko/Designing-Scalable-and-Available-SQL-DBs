@@ -345,3 +345,49 @@ Things to watch out for:
 
 Bottom line: Materialized views save time on repeated queries but cost storage and update effort. They work best when the same results are read many times and you can live with some delay in freshness.
 
+### Using read replicas to improve query performance
+
+A read replica is a copy of your primary database that handles read queries (SELECT statements) while the primary focuses on writes (INSERT, UPDATE, DELETE).
+
+The problem: A single server handling both reads and writes can become a bottleneck. Too much data coming in, or too many users querying at the same time – it's hard to scale up forever.
+
+The solution: Set up read replicas. The primary ingests data, processes it, writes it to disk, and then pushes copies to the replicas. Queries are sent to the replicas instead of the primary.
+
+Benefits:
+- Primary focuses on writes and ingestion.
+- Replicas handle reads.
+- You can add multiple replicas to handle many querying users.
+- Great when you have way more reads than writes.
+
+  <img width="300" height="160" alt="image" src="https://github.com/user-attachments/assets/05ee43bf-a7ca-44d4-bb20-e17f3926663d" />
+
+One catch: With ACID transactions, a write transaction isn't complete until it's written to both the primary and the replica. This adds some transaction latency.
+
+Bottom line: Read replicas help you scale reads separately from writes. Use them when you have a disproportionate number of read operations compared to writes.
+
+### Understanding write ahead logging
+
+A write-ahead log (WAL) is an append-only log that records atomic changes to the database. It helps implement ACID transactions (especially atomicity and durability) and is also used to create read replicas.
+
+Why WAL exists:
+
+Normally, writing to a database is slow – you have to position data correctly (row or column storage), update indexes, and do many steps. WAL avoids this by doing a fast sequential write to a log file. The data isn't in its final query-ready form, but it's safely stored in persistent storage very quickly.
+
+Two main benefits of WAL:
+1) Recovery – if the database crashes mid-transaction, WAL helps recover.
+2)Read replicas – WAL files can be shipped to replicas.
+
+Sync options when using WAL for replicas:
+Option	| Write Performance	| Data Loss Risk
+--- | ___ | --- |
+Asynchronous write		| Highest	|	Highest
+Synchronous write	|	Medium	|	Medium
+Synchronous apply	|	Lowest	|	Lowest
+
+- Async – data written to WAL on primary only. Fastest, but riskiest.
+
+- Sync write – WAL written on both primary and replica. Data on replica not yet queryable, but safe.
+
+- Sync apply – WAL written on both, and replica data is already structured and queryable. Safest but slowest.
+
+Bottom line: WAL trades immediate query-readiness for fast writes. When using replicas, you choose sync options based on your tolerance for data loss vs. write performance.
