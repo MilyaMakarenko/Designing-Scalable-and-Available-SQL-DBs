@@ -609,3 +609,9 @@ Open-source distributed relational database, created by former Spanner team memb
 - Handles time differences by waiting before reads and sometimes re-reading data (Spanner waits before writes).
 
 Bottom line: HA = multiple servers + multiple locations. Spanner (Google) solves time with TrueTime (atomic clocks). CockroachDB (open-source) solves time with hybrid logical clocks and runs anywhere.
+
+
+### Data lifecycle management
+
+<img width="400" height="380" alt="image" src="https://github.com/user-attachments/assets/c4f0af11-be75-4518-b99f-8e4ac4e7a808" />
+
